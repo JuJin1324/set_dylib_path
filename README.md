@@ -32,11 +32,11 @@ otool -L libcurl.dylib
 ```
 
 1. `/usr/local/opt/curl-openssl/lib/libcurl.4.dylib` 에 존재하는(설치 경로는 사용자마다 다름으로 필요한 라이브러리 경로는 알아서 찾자.) 
-libcurl.4.dylib 를 IDE의 임의의 디렉터리 아래에 넣어둔 후에 터미널로 해당 디렉터리로 이동한다.
+libcurl.4.dylib 를 해당 라이브러리를 사용하는 프로젝트의 임의의 디렉터리 아래에 넣어둔 후에 터미널로 해당 디렉터리로 이동한다.
 
 경로 예시)
 ```
-IDE root
+프로젝트 root
 ├── 여러 개발 파일들...
 └── external
     └── Darwin
@@ -44,7 +44,7 @@ IDE root
             └── libcurl.4.dylib
 ```
 
-2. libcurl.4.dylib 가 있는 디렉터리로 이동 후(IDE root/external/Darwin/lib) 
+2. libcurl.4.dylib 가 있는 디렉터리로 이동 후(프로젝트 root/external/Darwin/lib) 
 `install_name_tool -id "./external/lib/libcurl.4.dylib" libcurl.4.dylib` 를 통하여 빌드로 산출된 프로그램의 위치에서 
 external 디렉터리를 찾아 그 아래 lib 디렉터리 아래 libcurl.4.dylib 라이브러리를 실행 시 참조하도록 설정을 완료하였다.
 
